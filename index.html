@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de eletrônicos</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+       
+        #carrinho {
+            display: none;
+            position: fixed;
+            top: 50px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .carrinho-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body background="img/fundo.jpg">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary container-fluid">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Loja</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Produtos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sobre</a>
+              </li>  
+            </ul>           
+          </div>
+        </div>
+    </nav>
+    <header class="container mt-5">
+        <h1 class="color">Loja de Eletrônicos</h1>
+    </header>
+    <main class="container mt-4">        
+        <section>
+            <h2 class="color">Produtos em destaque</h2>
+            <div class="row">
+                <div class="col-sm-4">
+                  <div class="card">
+                    <img src="img/imp.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Impressora</h5>
+                      <p class="card-text">Impressora com uma avaliação boa pelo preço de R$124,99</p>
+                      <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProduto1">Negociar</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <img src="img/monitor.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Monitor 240Hz</h5>
+                      <p class="card-text">Monitor 240Hz 110 a 240 volts por R$700,00</p>
+                      <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProduto2">Negociar</a>
+                    </div>
+                  </div> 
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <img src="img/PC.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">PC Antiga Geração</h5>
+                      <p class="card-text">PC zero por apenas R$1.200</p>
+                      <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProduto3">Negociar</a>
+                    </div>
+                  </div>
+                </div> 
+            </div>
+        </section>
+
+        <div class="modal fade" id="modalProduto1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalProduto1Label">DETALHES DA IMPRESSORA</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                A Impressora XYZ é ideal para o seu escritório ou uso doméstico. Com tecnologia de impressão a jato de tinta, ela oferece qualidade excepcional em documentos e fotos. Possui conectividade Wi-Fi, permitindo que você imprima diretamente do seu smartphone ou tablet.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" onclick="adicionarAoCarrinho('Impressora', 124.99)">Finalizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="modalProduto2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalProduto2Label">DETALHES DO MONITOR</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                O Monitor UltraView 24" é perfeito para quem busca uma experiência visual imersiva. Com resolução Full HD e tecnologia IPS, ele proporciona cores vibrantes e ângulos de visão amplos.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" onclick="adicionarAoCarrinho('Monitor 240Hz', 700.00)">Finalizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="modalProduto3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalProduto3Label">DETALHES DO PC</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                O PC Gamer Titan X é a escolha perfeita para os entusiastas de jogos. Equipado com um processador Intel i7 de última geração e uma placa de vídeo NVIDIA RTX 3060, ele garante desempenho excepcional.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" onclick="adicionarAoCarrinho('PC Antiga Geração', 1200.00)">Finalizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section>
+          <h2 class="color">Contato</h2>
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text"><p class="color">Nunca compartilharemos seu e-mail com ninguém.</div></p>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Lembrar-me</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </section>
+
+       
+        <div id="carrinho">
+            <h5>Carrinho</h5>
+            <div id="carrinho-items"></div>
+            <button class="btn btn-success" onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </main>
+    <footer class="container-fluid">
+        <p>&copy; 2024 Loja de Eletrônicos</p>
+    </footer>
+
+    <script src="js/bootstrap.js"></script>
+    <script>
+        const carrinho = [];
+
+        function adicionarAoCarrinho(nome, preco) {
+            carrinho.push({ nome, preco });
+            atualizarCarrinho();
+            alert(`${nome} adicionado ao carrinho!`);
+        }
+
+        function atualizarCarrinho() {
+            const carrinhoDiv = document.getElementById('carrinho-items');
+            carrinhoDiv.innerHTML = '';
+            carrinho.forEach((item, index) => {
+                carrinhoDiv.innerHTML += `
+                    <div class="carrinho-item">
+                        <span>${item.nome} - R$${item.preco.toFixed(2)}</span>
+                        <button class="btn btn-danger btn-sm" onclick="removerDoCarrinho(${index})">Remover</button>
+                    </div>
+                `;
+            });
+            document.getElementById('carrinho').style.display = carrinho.length ? 'block' : 'none';
+        }
+
+        function removerDoCarrinho(index) {
+            carrinho.splice(index, 1);
+            atualizarCarrinho();
+        }
+
+        function finalizarCompra() {
+            alert('Compra finalizada com sucesso!');
+            carrinho.length = 0; // Limpa o carrinho
+            atualizarCarrinho();
+        }
+    </script>
+</body>
+</html>
